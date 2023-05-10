@@ -1,0 +1,299 @@
+* {
+  /*temporary color, change if needed*/
+  background: lightpink;
+}
+
+h1 {
+  text-align: center;
+  width: 40rem;
+  height: 2rem;
+  background: white;
+  margin: auto;
+  outline: 5px double black;
+  outline-offset: -20px;
+  border-radius: 20px;
+}
+
+a {
+  position: absolute;
+  top: 90%;
+  left: 43.5%;
+  text-decoration: 0;
+  color: black;
+  font-size: 25px;
+  background: white;
+  outline: 5px double black;
+  border-radius: 20px;
+}
+
+div {
+  margin-left: 12rem;
+  overflow: auto;
+  float: left;
+  /*border variables with height and color*/
+  --unknown_Triangles: 40px solid transparent;
+  --known_Triangle: 80px red solid;
+  /* width and height variables */
+  --size: 80px;
+  /*polygon shapes in order of sides (5+)*/
+  --pentagon: polygon(50% 0, 0 50%, 27% 100%, 73% 100%, 100% 50%);
+  --hexagon: polygon(25% 0, 0 50%, 25% 100%, 75% 100%, 100% 50%, 75% 0);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: var(--unknown_Triangles);
+  border-right: var(--unknown_Triangles);
+  border-top: var(--unknown_Triangles);
+  border-bottom: var(--known_Triangle);
+
+  transition: 2s ease-out;
+}
+
+.triangle:hover {
+  width: 0;
+  height: 0;
+  border-left: var(--unknown_Triangles);
+  border-right: var(--unknown_Triangles);
+  border-top: var(--unknown_Triangles);
+  border-bottom: var(--unknown_Triangles);
+}
+
+/*
+.triangle:hover {
+  animation: triangle 7s ease-in-out infinite;
+}
+*/
+
+.square {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  background: green;
+  transition: 2s ease-out;
+}
+
+.square:hover {
+  background: transparent;
+}
+
+.square:hover ~ .appear_Square {
+  animation: square 4s ease-in infinite;
+  position: absolute;
+  background: green;
+  top: 50%;
+  right: 50%;
+  transition: 2s ease-in;
+}
+
+.circle {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  background: cyan;
+  transition: 2s ease-out;
+}
+
+.circle:hover {
+  background: transparent;
+}
+
+.circle:hover ~ .appear_Circle {
+  animation: circle 2s ease-in-out alternate infinite;
+  position: absolute;
+  background: cyan;
+  right: 50%;
+  top: 50%;
+  transition: 2s ease-in;
+}
+
+.pentagon {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  background: purple;
+  clip-path: var(--pentagon);
+  transition: 2s ease-out;
+}
+
+.pentagon:hover {
+  background: transparent;
+}
+
+.pentagon:hover ~ .appear_Pentagon {
+  animation: pentagon 4s infinite ease-in-out;
+  background: purple;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+.hexagon {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  background: darkblue;
+  clip-path: var(--hexagon);
+  transition: 2s ease-out;
+}
+
+.hexagon:hover {
+  background: transparent;
+}
+
+.hexagon:hover ~ .appear_Hexagon {
+  animation: hexagon 3s alternate infinite ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  background: darkblue;
+  transition: 4s ease-in;
+}
+
+.appear_Triangle {
+  width: 0;
+  height: 0;
+  border-left: var(--unknown_Triangles);
+  border-right: var(--unknown_Triangles);
+  border-top: var(--unknown_Triangles);
+  border-bottom: var(--unknown_Triangle);
+  transition: 3s ease-in-out;
+}
+
+.appear_Square {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  background: transparent;
+}
+.appear_Circle {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  background: transparent;
+}
+.appear_Hexagon {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  background: transparent;
+  clip-path: var(--hexagon);
+}
+.appear_Pentagon {
+  margin-top: 35px;
+  height: var(--size);
+  width: var(--size);
+  background: transparent;
+  clip-path: var(--pentagon);
+}
+
+/*
+.block-bottom {
+  width: 40px;
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  background: white;
+  animation: circle 4s ease-in infinite;
+}
+
+.block-top {
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  background: white;
+  animation: circle reverse 4s ease-out infinite;
+}
+
+*/
+
+.triangle:hover ~ .appear_Triangle {
+  top: 50%;
+  right: 50%;
+  position: absolute;
+  border-bottom: var(--known_Triangle);
+}
+
+@keyframes circle {
+  0% {
+    background: red;
+    clip-path: circle(75%);
+  }
+  100% {
+    background: red;
+    clip-path: circle(10%);
+  }
+}
+
+@keyframes triangle {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+
+  100% {
+    transform: skew(360deg, 360deg);
+  }
+}
+
+@keyframes square {
+  0% {
+    transform: skew(0deg, 0deg);
+  }
+
+  50% {
+    transform: skew(45deg);
+  }
+
+  75% {
+    transform: skew(-45deg);
+  }
+
+  100% {
+    transform: skew(0deg, 0deg);
+  }
+}
+
+@keyframes pentagon {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    transform: translate(15px, 30px);
+  }
+
+  75% {
+    transform: translate(-15px, -30px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes hexagon {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circle {
+  0% {
+    clip-path: circle(75%);
+  }
+
+  50% {
+    clip-path: circle(5%);
+  }
+
+  100% {
+    clip-path: circle(100%);
+  }
+}

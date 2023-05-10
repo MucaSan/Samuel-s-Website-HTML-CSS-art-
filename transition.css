@@ -1,0 +1,113 @@
+*,
+p,
+h1 {
+  background: crimson;
+  text-align: center;
+  transition: 1s ease-in;
+}
+
+h1 {
+  color: white;
+  letter-spacing: 5px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+a {
+  font-size: 40px;
+  text-decoration-style: 0;
+  color: white;
+  width: 100px;
+  height: 50px;
+  text-align: center;
+  outline: 5px double white;
+  border-radius: 10px;
+  background: black;
+}
+
+.ball {
+  position: absolute;
+  border: 5px double black;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 50%;
+  font-weight: bolder;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 47.5%;
+}
+
+.block {
+  margin: auto;
+  width: 500px;
+  height: 500px;
+  border: 50px solid black;
+  border-radius: 25px;
+  background: plum;
+}
+
+/* vertical*/
+.arrow1 {
+  top: 50%;
+  width: 100px;
+  left: 12.5%;
+  height: 100px;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  background: black;
+  color: white;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow1:hover,
+.arrow2:hover {
+  background: green;
+}
+
+.arrow1:hover ~ .ball {
+  animation: vertical ease-in 2s alternate infinite;
+}
+
+/* horizontal*/
+
+.arrow2 {
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  clip-path: polygon(0% 0%, 0% 100%, 100% 50%);
+  background: black;
+  position: absolute;
+  color: white;
+  left: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow2:hover + .ball {
+  animation: horizontal ease-in 2s alternate infinite;
+}
+
+@keyframes vertical {
+  0% {
+    top: 20%;
+  }
+
+  100% {
+    top: 70%;
+  }
+}
+
+@keyframes horizontal {
+  0% {
+    left: 35%;
+  }
+  100% {
+    left: 60%;
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <style>
+      h1 {
+        color: red;
+        text-align: center;
+      }
+    </style>
+    <h1>Job Interview</h1>
+    <form>
+      <label for="cname">Complete Name:</label>
+      <input type="text" id="cname" placeholder="Example: Backley Obama" />
+      <br />
+      <br />
+      <label for="age">Date of Birth: </label>
+      <input type="text" id="age" placeholder="Example: 08/13/1996" />
+      <br />
+      <br />
+      <br />
+      <label for="job">What job are you applying for? And why?</label>
+      <br />
+      <textarea
+        cols="40"
+        rows="10"
+        id="job"
+        placeholder="Explain briefly what are your intentions for this company."
+      ></textarea>
+      <br />
+      <p>What's your relationship status?</p>
+      <input type="radio" id="single" name="rel_status" />
+      <label for="single">Single</label>
+      <input type="radio" id="dating" name="rel_status" />
+      <label for="dating">Dating</label>
+      <input type="radio" id="married" name="rel_status" />
+      <label for="married">Married</label>
+      <br />
+      <br />
+      <button type="submit" id="submit">Submit</button>
+    </form>
+  </body>
+</html>

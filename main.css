@@ -1,0 +1,236 @@
+:root {
+}
+
+body {
+  background: orchid;
+}
+
+* {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  margin: 80px;
+  height: 200px;
+  background: white;
+  color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/*this border will be provisory, it's only to expose how the boxes */
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto auto auto auto;
+  height: 70px;
+  width: 50%;
+  border: 5px solid black;
+  color: black;
+  background: lightgrey;
+  text-shadow: 2px -4px white;
+  box-shadow: 10px 10px 10px black;
+  border-radius: 20px;
+  animation: change 5s infinite;
+}
+
+h2 {
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  animation: slide 2s, light infinite 4s alternate;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.125s;
+  background: white;
+  margin-right: auto;
+  width: 50%;
+  height: 50px;
+  border-radius: 50px;
+}
+.text:hover {
+  opacity: 1;
+}
+
+.triangle {
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+  width: 0;
+  height: 0;
+  margin-right: 9%;
+  border-left: 20px solid transparent;
+  border-right: 110px solid white;
+  border-bottom: 5px solid transparent;
+  border-top: 50px solid transparent;
+  transition: 0.125s;
+  transform: rotate(-97deg);
+}
+
+.text:hover + .triangle {
+  opacity: 1;
+}
+
+h3 {
+  display: inline-block;
+}
+
+.baloon {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+  position: relative;
+  background: white;
+  margin-left: auto;
+  height: 50px;
+  width: 40%;
+  border-radius: 50px;
+}
+.baloon:hover {
+  opacity: 1;
+}
+
+.baloon:hover + .baloon-circle1 {
+  opacity: 1;
+  background: white;
+}
+
+.baloon:hover + .baloon-circle1 + .baloon-circle2 {
+  opacity: 1;
+  background: white;
+}
+/*use var of CSS to not have to repeat everything */
+.baloon-circle1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  margin-left: 70%;
+  background: white;
+  width: 25px;
+  height: 25px;
+  transition: 1s;
+  border-radius: 50%;
+}
+
+.baloon-circle2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  margin-left: 67%;
+  background: white;
+  width: 25px;
+  height: 25px;
+  transition: 1s;
+  border-radius: 50%;
+}
+
+.transform:hover {
+  animation: transform 2s infinite ease-out alternate;
+}
+
+.transition:hover {
+  animation: transition 15s infinite ease-in-out;
+}
+
+/* fix the thingy that when i remove the cursor, the polygon quickly changes to its standard position.*/
+
+.polygon:hover {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes transition {
+  0% {
+    background: red;
+  }
+  5% {
+    background: green;
+  }
+  10% {
+    background: blue;
+  }
+  15% {
+    background: green;
+  }
+  20% {
+    background: red;
+  }
+  25% {
+    border-radius: 50%;
+  }
+  50% {
+    border-radius: 80%;
+  }
+  75% {
+    border-radius: 100%;
+    transform: skew(-20deg, 50deg);
+  }
+  100% {
+    transform: none;
+    border-radius: none;
+    background: linear-gradient(
+      red 0%,
+      blue 25%,
+      green 50%,
+      orange 75%,
+      purple 100%
+    );
+    background: purple;
+  }
+}
+
+@keyframes transform {
+  0% {
+    clip-path: circle(75%);
+  }
+
+  100% {
+    clip-path: circle(25%);
+  }
+}
+
+@keyframes slide {
+  0% {
+    right: -50%;
+    opacity: 0;
+  }
+  100% {
+    right: 0%;
+    opacity: 1;
+  }
+}
+
+@keyframes light {
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
